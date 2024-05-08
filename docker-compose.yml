@@ -57,7 +57,7 @@ services:
     networks:
       - mynetwork
   node:
-    platform: linux/arm64/v8
+    #platform: linux/arm64/v8
     build:
       context: .
       dockerfile: .docker/dockerfile.node

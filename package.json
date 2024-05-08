@@ -1,6 +1,6 @@
 {
     "name": "sistema_de_clinica",
-    "description": "A attempt at making system for managing clinics",
+    "description": "An attempt at making a system for managing clinics",
     "author": "Some Random students",
     "main": "main.js",
     "private": true,
