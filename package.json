@@ -6,7 +6,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --host",
         "build": "vite build",
         "start": "electron ."
     },
@@ -20,5 +20,8 @@
         "sass": "^1.56.1",
         "vite": "^5.0",
         "vue": "^3.2.37"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^1.0.16"
     }
 }
