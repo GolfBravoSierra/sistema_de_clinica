@@ -23,7 +23,7 @@ class LoginTest extends TestCase
 
         // Send a POST request to the login route
         $response = $this->post('/login', [
-            'email' => $user->email,
+            'name' => $user->name,
             'password' => $password,
         ]);
 
