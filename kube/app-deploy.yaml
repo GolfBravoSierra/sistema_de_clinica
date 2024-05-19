@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "laravel"
+  labels:
+    app: laravel
+spec:
+  selector:
+    matchLabels:
+      run: laravel
+  template:
+    metadata:
+      labels:
+        run: laravel
+    spec:
+      containers:
+      - name: "laravel-app"
+        image: "lkaetsu/laravel-app"
+        volumeMounts: 
+        - name: app-volume
+          mountPath: /var/www
