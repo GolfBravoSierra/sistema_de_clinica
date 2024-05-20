@@ -20,7 +20,7 @@ require __DIR__.'/../vendor/autoload.php';
  if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'Electron') !== false) {
     $baseUrl = 'file://' . __DIR__;
 } else {
-    $baseUrl = getBaseUrl();
+    $baseUrl = url('/');
 }
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
