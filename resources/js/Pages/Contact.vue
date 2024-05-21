@@ -25,16 +25,16 @@
         <p v-if="message">{{ message }}</p>
       </div>
     </div>
-    <div class="w-1/2"> 
+    <div class="w-1/2 flex justify-center items-center"> 
       <table>
         <tr>
-          <td>Email:</td>
-          <td>sistemaclinica@bol.com.br</td>
+          <td><i class="fas fa-envelope mr-2"></i></td>
+          <td class="text-sm font-bold leading-6 text-gray-900">sistemaclinica@bol.com.br</td>
         </tr>
         <tr>
-          <td>Telefone:</td>
-          <td>(11) 99999-9999</td>
-        </tr> 
+          <td><i class="fas fa-phone mr-2"></i></td>
+          <td class="text-sm font-medium leading-6 text-gray-900">(11) 99999-9999</td>
+        </tr>
       </table>
     </div>
   </div>
