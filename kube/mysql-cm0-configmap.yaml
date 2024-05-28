@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  MYSQL_CONNECTION: mysql
+  MYSQL_HOST: mysql
+  MYSQL_DATABASE: laravel
+  MYSQL_USER: user
+  MYSQL_PASSWORD: password
+  MYSQL_ROOT_PASSWORD: password
+  SERVICE_NAME: mysql
+  SERVICE_TAGS: dev
+kind: ConfigMap
+metadata:
+  labels:
+    io.kompose.service: mysql
+  name: mysql-cm0
