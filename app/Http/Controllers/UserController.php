@@ -14,12 +14,13 @@ class UserController extends Controller
     public function login(Request $request)
     {
 
-        $user = DB::table('users')
-                ->where('name', '=', $request->name)
-                ->where('password', '=', $request->password)
-                ->findOrFail();
-        ddd($user);
+        // $user = DB::table('users')
+        //         ->where('name', '=', $request->username)
+        //         ->where('password', '=', $request->password)
+        //         ->findOrFail();
+        // ddd($user);
 
-        return Inertia::render('home');
+        // return Inertia::render('home');
+        return response()->json(['message' => $request.username], 200);
     }
 }
