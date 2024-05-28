@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 // Route::post('/send_email', 'EmailController@sendEmail');
 Route::post('/api/send-email', [EmailController::class, 'sendEmail']);
 
-Route::get('/login',[LoginController::class, 'create'])->name('login');
+Route::get('/login',[LoginController::class, 'create'])->name('Login');
 
 Route::middleware('auth')->group(function (){
     Route::get('/home', function () {return Inertia::render('home');});
