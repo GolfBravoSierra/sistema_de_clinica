@@ -7,7 +7,7 @@
                 <div class="mb-6">
                     <label
                         class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                        for="username"
+                        for="name"
                     >
                         Username
                     </label>
@@ -15,9 +15,9 @@
                     <input
                         v-model="form.username"
                         class="border p-2 w-full rounded"
-                        type="username"
-                        name="username"
-                        id="username"
+                        type="name"
+                        name="name"
+                        id="name"
                         required
                     />
 
@@ -32,6 +32,7 @@
                     <label
                         class="block mb-2 uppercase font-bold text-xs text-gray-700"
                         for="password"
+
                     >
                         Password
                     </label>
@@ -68,11 +69,11 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
 let form = useForm({
-    username: "",
+    name: "",
     password: "",
 });
 let submit = () => {
-    form.post("/login");
+    form.post('login');
 };
 </script>
 

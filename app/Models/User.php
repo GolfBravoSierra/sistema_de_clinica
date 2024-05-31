@@ -48,12 +48,12 @@ class User extends Authenticatable
         ];
     }
 
-    public function user():  HasMany
+    public function userhasmany():  HasMany
     {
         return $this->hasMany(User::class)->where('permicao',1);
     }
 
-    public function user(): BelongsTo
+    public function userbelongsto(): BelongsTo
     {
         return $this->belongsTo(User::class)->where('permicao',3);
     }
