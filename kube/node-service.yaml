@@ -8,6 +8,7 @@ metadata:
     io.kompose.service: node
   name: node
 spec:
+  type: NodePort
   ports:
     - name: "5173"
       port: 5173

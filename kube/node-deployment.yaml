@@ -1,46 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: C:\Program Files\Kubernetes\Kompose\kompose.exe convert
-    kompose.version: 1.33.0 (3ce457399)
   labels:
-    io.kompose.service: node
+    app: node
+    namespace: sisclinica
   name: node
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: node
+      app: node
   strategy:
-    type: Recreate
+    type: rollingUpdates
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
-      annotations:
-        kompose.cmd: C:\Program Files\Kubernetes\Kompose\kompose.exe convert
-        kompose.version: 1.33.0 (3ce457399)
       labels:
-        io.kompose.network/sistema-de-clinica-mynetwork: "true"
-        io.kompose.service: node
+        app: node
     spec:
       containers:
-        - image: lkaetsu/laravel-node
-          name: laravel-node
+        - image: lkaetsu/laravel-node:latest
+          name: node
           ports:
             - containerPort: 5173
               hostPort: 5173
               protocol: TCP
-          volumeMounts:
-            - mountPath: /var/www
-              name: node-cm0
-            - mountPath: /var/www/node_modules
-              name: node-claim1
-          workingDir: /var/www
-      restartPolicy: Always
-      volumes:
-        - configMap:
-            name: node-cm0
-          name: node-cm0
-        - name: node-claim1
-          persistentVolumeClaim:
-            claimName: node-claim1
+          workingDir: /var/www/html

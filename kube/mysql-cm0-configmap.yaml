@@ -11,5 +11,6 @@ data:
 kind: ConfigMap
 metadata:
   labels:
-    io.kompose.service: mysql
+    app: mysql
+  namespace: sisclinica
   name: mysql-cm0

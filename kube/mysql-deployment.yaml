@@ -1,27 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: C:\Program Files\Kubernetes\Kompose\kompose.exe convert
-    kompose.version: 1.33.0 (3ce457399)
   labels:
-    io.kompose.service: mysql
+    app: mysql
+  namespace: sisclinica
   name: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: mysql
+      app: mysql
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
-      annotations:
-        kompose.cmd: C:\Program Files\Kubernetes\Kompose\kompose.exe convert
-        kompose.version: 1.33.0 (3ce457399)
       labels:
-        io.kompose.network/sistema-de-clinica-mynetwork: "true"
-        io.kompose.service: mysql
+        app: mysql
     spec:
       containers:
         - image: mysql:8.3.0
@@ -35,7 +29,6 @@ spec:
           volumeMounts:
             - mountPath: /docker-entrypoint-initdb.d
               name: mysql-claim0
-      restartPolicy: Always
       volumes:
         - name: mysql-claim0
           persistentVolumeClaim:
