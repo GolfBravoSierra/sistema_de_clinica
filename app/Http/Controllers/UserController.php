@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -11,16 +15,27 @@ class UserController extends Controller
         return Inertia::render('login');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
+        
+        $user = $request->validate([
+            'name' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-        // $user = DB::table('users')
-        //         ->where('name', '=', $request->username)
-        //         ->where('password', '=', $request->password)
-        //         ->findOrFail();
-        // ddd($user);
+        try {
+            if(Auth::attempt($user)) {
+                $request->session()->regenerate();
 
-        // return Inertia::render('home');
-        return response()->json(['message' => $request.username], 200);
+                return redirect('/');
+                // return response()->json(['message' => (string)$user['name']], 200);
+            } else {
+                // return response()->json(['message' => 'jovane'], 200);
+            }
+        } catch (\Exception $e) {
+            Log::error('Failed to log in: ' . $e->getMessage());
+        }
+
+        // return response()->json(['message' => 'OMAGAH'], 200);
     }
 }

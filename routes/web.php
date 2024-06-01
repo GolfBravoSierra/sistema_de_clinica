@@ -23,5 +23,4 @@ Route::get('/', function () {return Inertia::render('Index');});
 Route::get('/contact', function () {return Inertia::render('Contact');});
 Route::get('/patients', function () {return Inertia::render('Patients');});
 Route::get('/about', function () {return Inertia::render('About');});
-Route::get('/home', function () {return Inertia::render('home');});
 
