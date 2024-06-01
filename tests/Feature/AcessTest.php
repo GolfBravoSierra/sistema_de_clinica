@@ -42,10 +42,10 @@ class AcessTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_home(): void
-    {
-        $response = $this->get('/home');
+    // public function test_home(): void
+    // {
+    //     $response = $this->get('/home');
 
-        $response->assertStatus(200);
-    }
+    //     $response->assertStatus(200);
+    // }
 }

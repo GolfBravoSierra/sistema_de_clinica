@@ -13,7 +13,7 @@
                     </label>
 
                     <input
-                        v-model="form.username"
+                        v-model="form.name"
                         class="border p-2 w-full rounded"
                         type="name"
                         name="name"
@@ -22,8 +22,8 @@
                     />
 
                     <div
-                        v-if="form.errors.username"
-                        v-text="form.errors.username"
+                        v-if="form.errors.name"
+                        v-text="form.errors.name"
                         class="text-red-500 text-xs mt-1"
                     ></div>
                 </div>
@@ -43,6 +43,7 @@
                         type="password"
                         name="password"
                         id="password"
+                        required
                     />
 
                     <div
@@ -73,7 +74,11 @@ let form = useForm({
     password: "",
 });
 let submit = () => {
+<<<<<<<< Updated upstream:resources/js/Pages/Auth/Login.vue
     form.post('login');
+========
+    form.post("login");
+>>>>>>>> Stashed changes:resources/js/Pages/Login.vue
 };
 </script>
 

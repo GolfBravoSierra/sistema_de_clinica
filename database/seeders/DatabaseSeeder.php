@@ -17,10 +17,17 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Test User',
+<<<<<<< Updated upstream
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
             'permicao' => 1,
             'cep' => '12345678',
+=======
+            'email' => 'test@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 1,
+            'cep' => 23456789,
+>>>>>>> Stashed changes
         ]);
     }
 }

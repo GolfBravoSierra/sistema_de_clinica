@@ -48,6 +48,7 @@ class User extends Authenticatable
         ];
     }
 
+<<<<<<< Updated upstream
     public function userhasmany():  HasMany
     {
         return $this->hasMany(User::class)->where('permicao',1);
@@ -57,4 +58,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class)->where('permicao',3);
     }
+=======
+    // public function user():  HasMany
+    // {
+    //     return $this->hasMany(User::class)->where('permicao',1);
+    // }
+
+    // public function user(): BelongsTo
+    // {
+    //     return $this->belongsTo(User::class)->where('permicao',3);
+    // }
+>>>>>>> Stashed changes
 }

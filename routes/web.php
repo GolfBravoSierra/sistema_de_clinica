@@ -12,10 +12,16 @@ Route::post('/api/send-email', [EmailController::class, 'sendEmail']);
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');
 Route::post('/login',[LoginController::class, 'store']);
+<<<<<<< Updated upstream
 
 Route::middleware('auth')->group(function (){
     Route::get('/home', function () {return Inertia::render('Home');});
 });
+=======
+//Route::post('/login',[LoginController::class, 'destroy'])->middleware('auth');
+
+Route::get('/home', function () {return Inertia::render('Home');})->middleware('auth');
+>>>>>>> Stashed changes
 
 Route::get('/', function () {return Inertia::render('Index');});
 //Route::get('/login', [UserController::class, 'login']);
