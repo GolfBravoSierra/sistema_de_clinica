@@ -11,11 +11,11 @@
                 <h1 class="font-bold text-lg">
                     Sistema de Clinica
                 </h1>
-                <p class="text-sm ml-4">
-                    Welcome Back, {{ name }}!
+                <p v-if="$page.props.auth !== null" class="text-sm ml-4">
+                    Welcome Back, {{ $page.props.auth.user.name }}!
                 </p>
+                <Nav />
             </div>
-            <Nav />
         </header>
     </section>
     <section class="p-6">
@@ -26,15 +26,11 @@
 </template>
 
 <script>
-import Nav from "./Nav";
+import Nav from "./Nav.vue";
 
 export default {
-    components: { Nav },
+    name: 'Layout',
 
-    computed: {
-        name() {
-            return $this.page.props.auth.user.name;
-        }
-    }
+    components: { Nav },
 };
 </script>

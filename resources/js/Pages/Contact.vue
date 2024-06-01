@@ -39,29 +39,31 @@
     </div>
   </div>
 </template>
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        email: {
-          to: '',
-          subject: '',
-          message: ''
-        },
+<script>
+import axios from 'axios';
+import Layout from "../Shared/Layout.vue";
+
+export default {
+  layout: Layout,
+  data() {
+    return {
+      email: {
+        to: '',
+        subject: '',
         message: ''
-      };
-    },
-    methods: {
-      async sendEmail() {
-        try {
-          const response = await axios.post('http://localhost:8080/api/send-email', this.email);
-          this.message = response.data.message;
-        } catch (error) {
-          this.message = 'Failed to send email.';
-        }
+      },
+      message: ''
+    };
+  },
+  methods: {
+    async sendEmail() {
+      try {
+        const response = await axios.post('http://localhost:8080/api/send-email', this.email);
+        this.message = response.data.message;
+      } catch (error) {
+        this.message = 'Failed to send email.';
       }
     }
-  };
-  </script>
+  }
+};
+</script>

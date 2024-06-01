@@ -1,59 +1,31 @@
 <template>
-    <nav class="mt-6">
-        <ul class="list-disc">
+    <nav>
+        <ul class="flex space-x-6">
             <li>
-                <Link 
-                    href="/" 
-                    class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-                    :class="{'font-bold bg-blue-800': $page.component === 'Index'}"
-                >
-                    Home
-                </Link>
+                <NavLink href="/" :active="$page.component === 'Index'"  >Home</NavLink>
             </li>
             <li>
-                <Link 
-                    href="/login" 
-                    class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-                    :class="{'font-bold bg-blue-800': $page.component === 'Login'}"
-                >
-                    Login
-                </Link>
+                <NavLink v-if="$page.props.auth === null" href="/login" :active="$page.component === 'Login'"  >Login</NavLink>
+                <NavLink v-else href="/logout" method="post" as="button" >Logout</NavLink>
             </li>
             <li>
-                <Link 
-                    href="/contact" 
-                    class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-                    :class="{'font-bold bg-blue-800': $page.component === 'Contact'}"
-                >
-                    Contato
-                </Link>
+                <NavLink href="/contact" :active="$page.component === 'Contact'"  >Contato</NavLink>
             </li>
             <li>
-                <Link 
-                    href="/patients" 
-                    class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-                    :class="{'font-bold bg-blue-800': $page.component === 'Patients'}"
-                >
-                    Nossos Pacientes
-                </Link>
+                <NavLink href="/patients" :active="$page.component === 'Patients'"  >Nossos Pacientes</NavLink>
             </li>
             <li>
-                <Link 
-                    href="/about" 
-                    class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-                    :class="{'font-bold bg-blue-800': $page.component === 'About'}"
-                >
-                    Sobre Nós
-                </Link>
+                <NavLink href="/about" :active="$page.component === 'About'"  >Sobre nós</NavLink>
             </li>
         </ul>
-    <nav/>
+    </nav>
 </template>
 
 <script>
-import { NavLink } from "./NavLink";
+import NavLink from "./NavLink.vue";
 
 export default {
+    name: 'Nav',
     components: { NavLink },
 }
 </script>

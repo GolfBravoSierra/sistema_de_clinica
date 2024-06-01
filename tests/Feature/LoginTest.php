@@ -18,26 +18,6 @@ class LoginTest extends TestCase
     {
         // Create a test user
         $user = User::factory()->create([
-<<<<<<< Updated upstream
-            'password' => bcrypt($password = 'i-love-laravel'),
-            'name' => 'testuser',
-            'email' => 'test@example.com',
-            'email_verified_at' => now(),
-            'permicao' => 0,
-            'cep' => 12345678,
-        ]);
-
-        // Attempt to login
-        $response = $this->post('/login', $user->toArray());
-        
-        //dd($user);
-
-        // Check if the user is authenticated
-        $this->assertAuthenticatedAs($user);
-
-        // Check if the user was redirected (logged in successfully)
-        $response->assertRedirect('/home'); // Replace '/home' with the path the user should be redirected to after login
-=======
             'name' => 'Test User',
             'email' => 'test@gmail.com',
             'password' => bcrypt('password'),
@@ -55,6 +35,5 @@ class LoginTest extends TestCase
 
         // Assert the user was redirected to the intended page
         $response->assertRedirect('/');
->>>>>>> Stashed changes
     }
 }

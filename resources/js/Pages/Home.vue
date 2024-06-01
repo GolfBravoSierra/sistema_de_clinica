@@ -1,23 +1,13 @@
 <template>
-<<<<<<< Updated upstream
     <div>
         <h1>Você está na home</h1>
     </div>
 </template>
 
 <script>
+import Layout from "../Shared/Layout.vue";
+
 export default {
-    name: 'Home',
-}
+  layout: Layout,
+};
 </script>
-
-<style scoped>
-/* Add any custom styles here */
-</style>
-=======
-    <h1>Home Page</h1>
-</template>
-<script>
-
-</script>
->>>>>>> Stashed changes

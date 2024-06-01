@@ -1,17 +1,20 @@
 <template>
     <Link 
-        href="/" 
-        class="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
-        :class="{'font-bold bg-blue-800': $page.component === 'Index'}"
+        class="text-black hover:font-bold"
+        :class="{'font-bold underline': active}"
     >
-        Home
+        <slot />
     </Link>
 </template>
 
 <script>
+import { Link } from "@inertiajs/vue3"
+
 export default {
+    name: 'NavLink',
+    components: { Link },
     props: {
         active: Boolean
     }
-}
+};
 </script>

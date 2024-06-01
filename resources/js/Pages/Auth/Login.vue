@@ -74,11 +74,7 @@ let form = useForm({
     password: "",
 });
 let submit = () => {
-<<<<<<<< Updated upstream:resources/js/Pages/Auth/Login.vue
-    form.post('login');
-========
     form.post("login");
->>>>>>>> Stashed changes:resources/js/Pages/Login.vue
 };
 </script>
 
