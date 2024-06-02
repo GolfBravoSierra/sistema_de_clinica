@@ -14,23 +14,26 @@ class LoginTest extends TestCase
     /**
      * Test if login is possible.
      */
-    public function test_login_is_possible(): void
+    public function test_is_login_possible(): void
     {
         // Create a test user
         $user = User::factory()->create([
-            'password' => bcrypt($password = 'i-love-laravel'),
+            'name' => 'Test User',
+            'email' => 'test@gmail.com',
+            'password' => bcrypt('password'),
+            'permicao' => 1,
+            'cep' => 23456789,
         ]);
+
+        $auth = ['name'=>$user->name,'password'=>'password'];
 
         // Send a POST request to the login route
-        $response = $this->post('/login', [
-            'name' => $user->name,
-            'password' => $password,
-        ]);
-
-        // Assert the user was redirected to the intended page
-        $response->assertRedirect('/home');
-
+        $response = $this->post('/login', $auth);
+        
         // Assert the user was authenticated
         $this->assertAuthenticatedAs($user);
+
+        // Assert the user was redirected to the intended page
+        $response->assertRedirect('/');
     }
 }

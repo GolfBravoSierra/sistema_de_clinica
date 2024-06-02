@@ -13,4 +13,12 @@ Pellentesque nec nulla ligula. Donec gravida turpis a vulputate ultricies. Em p√
         </div>
       </div>
     </div>
-  </template>
+</template>
+
+<script>
+import Layout from "../Shared/Layout.vue";
+
+export default {
+  layout: Layout,
+};
+</script>
