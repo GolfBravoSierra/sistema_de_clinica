@@ -1,5 +1,11 @@
 <template>
     <nav>
+        <h1 class="font-bold text-lg">
+            <NavLink href="/" :active="$page.component === 'Index'"  >Sistema de Clinica</NavLink>
+        </h1>
+        <p v-if="$page.props.auth !== null" class="text-sm ml-4">
+            Welcome Back, {{ $page.props.auth.user.name }}!
+        </p>
         <ul class="flex space-x-6">
             <li>
                 <NavLink href="/" :active="$page.component === 'Index'"  >Home</NavLink>

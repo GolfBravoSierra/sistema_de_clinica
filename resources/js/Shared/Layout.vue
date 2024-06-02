@@ -8,12 +8,6 @@
     <section class="p-6 bg-gray-200">
         <header class="flex-justify=between">
             <div class="flex-items-center">
-                <h1 class="font-bold text-lg">
-                    Sistema de Clinica
-                </h1>
-                <p v-if="$page.props.auth !== null" class="text-sm ml-4">
-                    Welcome Back, {{ $page.props.auth.user.name }}!
-                </p>
                 <Nav />
             </div>
         </header>
