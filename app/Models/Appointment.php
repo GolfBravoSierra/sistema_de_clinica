@@ -24,12 +24,12 @@ class Appointment extends Model
         ];
     }
 
-    public function user(): BelongsTo
+    public function paciente(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->where('permicao', 1);
     }
-    // public function psychologist(): BelongsTo
-    // {
-    //     return $this->belongsTo(Psychologist::class);
-    // }
+    public function psicologo(): BelongsTo
+    {
+        return $this->belongsTo(User::class)->where('permicao', 2);
+    }
 }

@@ -6,20 +6,33 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function create(Request $request)
+    public function index()
     {
-        return Inertia::render('login');
+        //
     }
 
-    public function login(Request $request)
+    public function create()
     {
+        //
+    }
 
-        $user = DB::table('users')
-                ->where('name', '=', $request->name)
-                ->where('password', '=', $request->password)
-                ->findOrFail();
-        ddd($user);
+    public function store(Request $request)
+    {
+        //
+    }
 
-        return Inertia::render('home');
+    public function edit()
+    {
+        //
+    }
+
+    public function update(Request $request)
+    {
+        //
+    }
+
+    public function destroy(Request $request)
+    {
+        //
     }
 }
