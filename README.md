@@ -1,7 +1,12 @@
 
 # Projeto-Sistema-de-Clínica
 
-### Passo a passo
+### Requerimentos para rodar o app
+
+- Docker
+- Node with npm
+
+### Passo a passo para subir o site
 Clone Repositório criado a partir do template, entre na pasta e execute os comandos abaixo:
 
 Crie o Arquivo .env
@@ -49,12 +54,11 @@ Ou para o intuito de testes usar
 php artisan migrate --seed
 ```
 
-
-Acessar o container do node
+### Passo a passo para utilizar o electron
+Instalar a dependência do electron
 ```sh
-docker compose exec node /bin/sh
+npm install electron --save-dev
 ```
-
 
 Acessar o app pelo electron
 ```sh
