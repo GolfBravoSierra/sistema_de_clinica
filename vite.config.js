@@ -7,6 +7,10 @@ export default defineConfig({
         hmr: {
             host: '127.0.0.1',
         },
+        // Remove before release!!
+        watch: {
+            usePolling: true,
+        },
     }, 
     plugins: [
         laravel({

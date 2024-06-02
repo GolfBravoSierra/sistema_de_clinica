@@ -1,12 +1,12 @@
 <template>
     <main class="grid place-items-center min-h-screen">
         <section class="bg-white p-8 rounded-xl max-w-md mx-auto border w-full">
-            <h1 class="text-3xl mb-6">Log In</h1>
+            <h1 class="text-3xl mb-6 font-bold leading-9 tracking-tight text-gray-900">Log In</h1>
 
             <form @submit.prevent="submit">
                 <div class="mb-6">
                     <label
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                        class="block text-sm font-medium leading-6 text-gray-900"
                         for="name"
                     >
                         Username
@@ -30,7 +30,7 @@
 
                 <div class="mb-6">
                     <label
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                        class="block text-sm font-medium leading-6 text-gray-900"
                         for="password"
 
                     >
@@ -56,7 +56,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+                        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         :disabled="form.processing"
                     >
                         Log In

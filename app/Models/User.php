@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Appointment;
 
 class User extends Authenticatable
 {
@@ -48,13 +49,18 @@ class User extends Authenticatable
         ];
     }
 
-    // public function user():  HasMany
-    // {
-    //     return $this->hasMany(User::class)->where('permicao',1);
-    // }
+    public function appointments():  HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
 
-    // public function user(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class)->where('permicao',3);
-    // }
+    public function paciente():  HasMany
+    {
+        return $this->hasMany(User::class)->where('permicao', 1);
+    }
+
+    public function psicologo(): BelongsTo
+    {
+        return $this->belongsTo(User::class)->where('permicao', 2);
+    }
 }
