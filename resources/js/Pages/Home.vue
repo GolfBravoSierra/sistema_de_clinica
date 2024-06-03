@@ -1,13 +1,23 @@
 <template>
-    <div>
-        <h1>Você está na home</h1>
-    </div>
+  <ul>
+    <li
+    v-for="appointment in appointments"
+    :key="appointment.id"
+    >{{appointment.date}}
+    {{ appointment.id }}</li>
+
+  </ul>
 </template>
+
+<script setup>
+defineProps({ appointments:Array });
+</script> 
 
 <script>
 import Layout from "../Shared/Layout.vue";
 
+
 export default {
-  layout: Layout,
+layout: Layout,
 };
 </script>

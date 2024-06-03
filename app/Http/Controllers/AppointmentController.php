@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class AppointmentController extends Controller
 {
+
     public function index()
     {
-        return Inertia::render('Appointments/Index',
-        ['user' == Auth::user()]
-    );
+        $appointments = Auth::user()->appointments();
+        return Inertia::render('Home',['appointments' => $appointments]);
     }
 
     public function create()
@@ -38,4 +42,6 @@ class AppointmentController extends Controller
     {
         //
     }
+
+    
 }

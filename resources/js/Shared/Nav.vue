@@ -23,6 +23,9 @@
             <li>
                 <NavLink href="/about" :active="$page.component === 'About'"  >Sobre nós</NavLink>
             </li>
+            <li>
+                <NavLink href="/home" :active="$page.component === 'Home'" >Área Logada</NavLink> 
+            </li>
         </ul>
     </nav>
 </template>
@@ -33,5 +36,6 @@ import NavLink from "./NavLink.vue";
 export default {
     name: 'Nav',
     components: { NavLink },
+    
 }
 </script>
