@@ -16,7 +16,11 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->timestamps();
-            $table->boolean('status');
+            $table->integer('status');
+            $table->integer('paciente_id')->unsigned();
+            $table->string('paciente_nome');
+            $table->integer('psicologo_id')->unsigned();
+            $table->string('psicologo_nome');
         });
     }
 

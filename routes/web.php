@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\User;
 
-// Route::post('/send_email', 'EmailController@sendEmail');
 Route::post('/api/send-email', [EmailController::class, 'sendEmail']);
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');
@@ -21,6 +20,16 @@ Route::middleware('auth')->group(function (){
     Route::get('/{user}/patient',[AppointmentController::class, 'index'])->can('view', Auth::user());
     Route::post('/{user}/patient',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
     Route::get('/home', function () {return Inertia::render('Home');}); // Tirar isso e deixar só o index de cima como a area logada?
+
+    // Secretária, que trabalha o dia inteiro comigo    //
+    // Estou correndo um grande perigo                  //
+    // De ir parar no tribunal                          //
+    // Secretária, às vezes penso em falar contigo      //
+    // Mas tenho medo de ser confundido                 //
+    Route::get('/seggs', function () {return Inertia::render('Secretaria');}); //temporario para testar a area da secretaria
+    Route::get('/add-patients', [UserController::class, 'secretaria_addpatients']);
+    Route::get('/manage-appointments', [UserController::class, 'secretaria_appointments']);
+
 
     // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());
     // Route::post('/{user}/appointments/create',[AppointmentController::class, 'store'])->can('create', Auth::user());

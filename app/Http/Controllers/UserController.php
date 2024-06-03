@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Appointment;
 
 class UserController extends Controller
 {
+    public function secretaria_addpatients()
+    {
+        return Inertia::render('AddPatients');
+    }
+
+    public function secretaria_appointments()
+    {   
+        return Inertia::render('ApointmentsSecretaria', ['appointments' => Appointment::all()]);
+    }
+
     public function index()
     {
         //

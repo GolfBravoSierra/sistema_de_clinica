@@ -4,7 +4,7 @@
             <NavLink href="/" :active="$page.component === 'Index'"  >Sistema de Clinica</NavLink>
         </h1>
         <p v-if="$page.props.auth !== null" class="text-sm ml-4">
-            Welcome Back, {{ $page.props.auth.user.name }}!
+            Olá, {{ $page.props.auth.user.name }}!
         </p>
         <ul class="flex space-x-6">
             <li>
