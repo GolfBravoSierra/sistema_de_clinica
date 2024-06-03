@@ -19,14 +19,13 @@ Route::post('/login',[LoginController::class, 'store']);
 Route::post('/logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 Route::middleware('auth')->group(function (){
-    Route::get('/home',[AppointmentController::class, 'index']);//->can('view', Auth::user());
-    Route::post('/{user}/patient',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
-    //Route::get('/home', function () {return Inertia::render('Home');}); // Tirar isso e deixar só o index de cima como a area logada?
+    Route::get('/{user}/arealogada',[AppointmentController::class, 'index']);
 
-    // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());
-    // Route::post('/{user}/appointments/create',[AppointmentController::class, 'store'])->can('create', Auth::user());
-    // Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit'])->can('update', Auth::user());
-    // Route::post('/{user}/appointments/update',[AppointmentController::class, 'update'])->can('update', Auth::user());
+    Route::get('/{user}/appointments/create',[AppointmentController::class, 'create']);
+    Route::post('/{user}/appointments/create',[AppointmentController::class, 'store']);
+    Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit'])->can('update', Auth::user());
+    Route::post('/{user}/appointments/update',[AppointmentController::class, 'update'])->can('update', Auth::user());
+    Route::post('/{user}/appointments/destroy',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
 
     Route::post('/patients/post',[PostController::class, 'store'])->can('create', Auth::user());
     Route::post('/patients/post/update',[PostController::class, 'update'])->can('update', Auth::user());

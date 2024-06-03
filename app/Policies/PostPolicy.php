@@ -15,12 +15,12 @@ class PostPolicy
     
     public function update(User $user, Post $post): bool
     {
-        return $user->id === $post->paciente()->id;
+        return $user->id === $post->paciente->id;
     }
 
     public function destroy(User $user, Post $post): bool
     {
-        return $user->id === $post->paciente()->id
+        return $user->id === $post->paciente->id
         || $user->permicao === 3;
     }
 }

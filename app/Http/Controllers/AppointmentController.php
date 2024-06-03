@@ -14,8 +14,11 @@ class AppointmentController extends Controller
 
     public function index()
     {
-        $appointments = Auth::user()->appointments();
-        return Inertia::render('Home',['appointments' => $appointments]);
+        $user = Auth::user();
+        $appointments = Appointment::where('paciente_id', $user->id)->get();
+        return Inertia::render('Appointment/Index',
+            ['user', $user,
+            'appointments' => $appointments]);
     }
 
     public function create()

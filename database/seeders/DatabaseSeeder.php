@@ -16,12 +16,31 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create(['permicao' => 1]);
 
-        $user = User::factory()->create([
+        User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@gmail.com',
             'password' => bcrypt("password"),
             'permicao' => 1,
         ]);
-        Appointment::factory(5)->create([]);
+
+        $userP = User::factory()->create([
+            'name' => 'Paciente Maluco',
+            'email' => 'ola@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 1,
+        ]);
+
+        $userBol = User::factory()->create([
+            'name' => 'Jair Messias Bolsonaro',
+            'email' => 'bol@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 2,
+        ]);
+
+        Appointment::factory(2)
+            ->for($userP, 'paciente')
+            ->for($userBol, 'psicologo')
+            ->create(['paciente_name' => $userP->name,
+                      'psicologo_name' => $userBol->name]);
     }
 }

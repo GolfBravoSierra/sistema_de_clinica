@@ -8,7 +8,7 @@
         </p>
         <ul class="flex space-x-6">
             <li>
-                <NavLink href="/" :active="$page.component === 'Index'"  >Home</NavLink>
+                <NavLink href="/" :active="$page.component === 'Index'"  >Início</NavLink>
             </li>
             <li>
                 <NavLink v-if="$page.props.auth === null" href="/login" :active="$page.component === 'Login'"  >Login</NavLink>
@@ -24,7 +24,8 @@
                 <NavLink href="/about" :active="$page.component === 'About'"  >Sobre nós</NavLink>
             </li>
             <li>
-                <NavLink href="/home" :active="$page.component === 'Home'" >Área Logada</NavLink> 
+                <NavLink v-if="$page.props.auth === null" href="/login" >Área logada</NavLink>
+                <NavLink v-else :href="'/'+$page.props.auth.user.id+'/arealogada'" :active="$page.component === 'Appointment/Index'"  >Área logada</NavLink>
             </li>
         </ul>
     </nav>
