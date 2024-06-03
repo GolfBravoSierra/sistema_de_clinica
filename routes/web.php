@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/seggs', function () {return Inertia::render('Secretaria');}); //temporario para testar a area da secretaria
     Route::get('/add-patients', [UserController::class, 'secretaria_addpatients']);
     Route::get('/manage-appointments', [UserController::class, 'secretaria_appointments']);
+    Route::post('/onGoingAppointment', [UserController::class, 'secretaria_onGoingAppointment']);
 
 
     // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());

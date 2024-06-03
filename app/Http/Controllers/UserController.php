@@ -18,6 +18,14 @@ class UserController extends Controller
         return Inertia::render('ApointmentsSecretaria', ['appointments' => Appointment::all()]);
     }
 
+    public function secretaria_onGoingAppointment(Request $request)
+    {
+        $appointment = Appointment::find($request->id);
+        $appointment->status = 1;
+        $appointment->save();
+        return Inertia::render('ApointmentsSecretaria', ['appointments' => Appointment::all()]);
+    }
+
     public function index()
     {
         //
