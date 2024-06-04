@@ -19,6 +19,7 @@ class AppointmentFactory extends Factory
         return [
             'date' => fake()->dateTimeBetween('-1 month', '+1 month'),
             'time' => fake()->time('H:i'),
+            'status' => fake()->numberBetween(0, 2),
         ];
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <main class="grid place-items-center min-h-screen">
+    <main v-if="$page.props.auth === null" class="grid place-items-center min-h-screen">
         <section class="bg-white p-8 rounded-xl max-w-md mx-auto border w-full">
             <h1 class="text-3xl mb-6 font-bold leading-9 tracking-tight text-gray-900">Log In</h1>
 
@@ -65,6 +65,15 @@
             </form>
         </section>
     </main>
+    <div v-else class="flex flex-col items-center justify-center min-h-screen">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-4 mb-4">
+            <h1 class="mb-6 text-2xl font-bold text-center">Você já está logado</h1>
+            <div class="mb-4">
+                <a href="/" class="block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded text-center mb-3">Voltar</a>
+                <a class="block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded text-center mb-3" href="/logout" method="post" as="button" >Logout</a>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
