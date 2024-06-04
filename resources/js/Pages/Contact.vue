@@ -35,6 +35,14 @@
           <td><i class="fas fa-phone mr-2"></i></td>
           <td class="text-sm font-medium leading-6 text-gray-900">(11) 99999-9999</td>
         </tr>
+        <tr>
+          <td><i class="fas fa-map-marked-alt"></i></td>
+          <td class="text-sm font-medium leading-6 text-gray-900">Rua Professor Doutor Euryclides de Jesus Zerbini, 1516, Pq. Rural Fazenda Santa Cândida</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-clock"></i></td>
+          <td class="text-sm font-medium leading-6 text-gray-900">De segunda a sexta das 8:00 as 12:00 e das 13:00 as 17:00</td>
+        </tr>
       </table>
     </div>
   </div>
