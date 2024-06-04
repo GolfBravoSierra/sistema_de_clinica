@@ -19,7 +19,7 @@ class PostController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $attributes=$request->all();
-        $post=Post::Factory()->Create($attributes);
+        $post=Post::factory()->create($attributes);
         return redirect('/patients');
     }
 
