@@ -1,0 +1,44 @@
+apiVersion: v1
+data:
+  APP_NAME: sistema_de_clinica
+  APP_ENV: local
+  APP_KEY: base64:TF8E0CkphjBoCWxZX22VnZdq8m8+k8/4J7gcSguPSGQ=
+  APP_DEBUG: "true"
+  APP_URL: http://localhost:8080
+  LOG_CHANNEL: stack
+  LOG_STACK: single
+  LOG_DEPRECATIONS_CHANNEL: "null"
+  LOG_LEVEL: debug
+  DB_CONNECTION: mysql
+  DB_HOST: mysql
+  DB_PORT: "3306"
+  DB_DATABASE: laravel
+  DB_USERNAME: user
+  DB_PASSWORD: password
+  DB_ROOT_PASSWORD: password
+  SESSION_DRIVER: database
+  SESSION_LIFETIME: "120"
+  SESSION_ENCRYPT: "false"
+  SESSION_PATH: /
+  SESSION_DOMAIN: "null"
+  BROADCAST_CONNECTION: log
+  FILESYSTEM_DISK: local
+  QUEUE_CONNECTION: database
+  CACHE_STORE: database
+  CACHE_PREFIX: 
+  MEMCACHED_HOST: localhost
+  MAIL_MAILER: smtp
+  MAIL_HOST: smtp.gmail.com
+  MAIL_PORT: "587"
+  MAIL_USERNAME: sistemaclinicas.noreplay@gmail.com
+  MAIL_PASSWORD: "tame kxtk cydj idtp"
+  MAIL_ENCRYPTION: tls
+  MAIL_FROM_ADDRESS: sistemaclinicas.noreplay@gmail.com
+  MAIL_FROM_NAME: "${APP_NAME}"
+  VITE_APP_NAME: "${APP_NAME}"
+kind: ConfigMap
+metadata:
+  labels:
+    app: app
+  namespace: sisclinica
+  name: env-cm0
