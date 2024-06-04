@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function (){
     // De ir parar no tribunal                          //
     // Secretária, às vezes penso em falar contigo      //
     // Mas tenho medo de ser confundido                 //
-    Route::get('/seggs', function () {return Inertia::render('Secretaria');}); //temporario para testar a area da secretaria
+    Route::get('/secretaria', function () {return Inertia::render('Secretaria');}); //temporario para testar a area da secretaria
     Route::get('/add-patients', [UserController::class, 'secretaria_addpatients']);
     Route::get('/manage-appointments', [UserController::class, 'secretaria_appointments']);
     Route::post('/onGoingAppointment', [UserController::class, 'secretaria_onGoingAppointment']);

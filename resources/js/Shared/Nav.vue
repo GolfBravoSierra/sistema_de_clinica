@@ -25,6 +25,7 @@
             </li>
             <li>
                 <NavLink v-if="$page.props.auth === null" href="/login" >Agendamentos</NavLink>
+                <NavLink v-else-if="$page.props.auth.user.permicao === 3" href="/secretaria" :active="$page.component === 'Appointment/Index'"  >Agendamentos</NavLink>
                 <NavLink v-else :href="'/'+$page.props.auth.user.id+'/arealogada'" :active="$page.component === 'Appointment/Index'"  >Agendamentos</NavLink>
             </li>
         </ul>
