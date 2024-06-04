@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\User;
 
-// Route::post('/send_email', 'EmailController@sendEmail');
 Route::post('/api/send-email', [EmailController::class, 'sendEmail']);
 
 Route::get('/login',[LoginController::class, 'create'])->name('login');
@@ -30,6 +29,18 @@ Route::middleware('auth')->group(function (){
     Route::post('/patients/post',[PostController::class, 'store'])->can('create', Auth::user());
     Route::post('/patients/post/update',[PostController::class, 'update'])->can('update', Auth::user());
     Route::post('/patients/post/destroy',[PostController::class, 'destroy'])->can('destroy', Auth::user());
+
+    // Secretária, que trabalha o dia inteiro comigo    //
+    // Estou correndo um grande perigo                  //
+    // De ir parar no tribunal                          //
+    // Secretária, às vezes penso em falar contigo      //
+    // Mas tenho medo de ser confundido                 //
+    Route::get('/seggs', function () {return Inertia::render('Secretaria');}); //temporario para testar a area da secretaria
+    Route::get('/add-patients', [UserController::class, 'secretaria_addpatients']);
+    Route::get('/manage-appointments', [UserController::class, 'secretaria_appointments']);
+    Route::post('/onGoingAppointment', [UserController::class, 'secretaria_onGoingAppointment']);
+    Route::post('/newPatient', [UserController::class, 'secretaria_newPatient']);
+
 });
 
 Route::get('/', function () {return Inertia::render('Index');});

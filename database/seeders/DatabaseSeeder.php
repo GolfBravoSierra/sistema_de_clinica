@@ -16,12 +16,51 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create(['permicao' => 1]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@gmail.com',
+        $bubbles = User::factory()->create([
+            'name' => 'Bubbles',
+            'email' => 'bubbles@gmail.com',
             'password' => bcrypt("password"),
             'permicao' => 1,
         ]);
-        Appointment::factory(5)->create([]);
+
+        $blossom = User::factory()->create([
+            'name' => 'Blossom',
+            'email' => 'blossom@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 2,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Buttercup',
+            'email' => 'buttercup@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 3,
+        ]);
+
+        $userP = User::factory()->create([
+            'name' => 'Paciente Maluco',
+            'email' => 'ola@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 1,
+        ]);
+
+        $userBol = User::factory()->create([
+            'name' => 'Jair Messias Bolsonaro',
+            'email' => 'bol@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 2,
+        ]);
+
+        Appointment::factory(10)
+            ->for($bubbles, 'paciente')
+            ->for($blossom, 'psicologo')
+            ->create(['paciente_nome'=> $bubbles->name,
+                      'psicologo_nome' => $blossom->name]);
+
+        Appointment::factory(10)
+            ->for($userP, 'paciente')
+            ->for($userBol, 'psicologo')
+            ->create(['paciente_nome' => $userP->name,
+                      'psicologo_nome' => $userBol->name]);
     }
 }
