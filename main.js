@@ -9,7 +9,7 @@ const createWindow = () => {
       }
     })
   
-    win.loadURL('http://localhost:8080')
+    win.loadURL('http://localhost:80') // Change url to whatever one you want to see in electron
   }
 
   app.whenReady().then(() => {

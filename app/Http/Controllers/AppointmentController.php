@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-
 
 class AppointmentController extends Controller
 {

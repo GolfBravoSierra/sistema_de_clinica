@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app
+  namespace: sisclinica 
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: app
+      name: app
+    spec:
+      containers:
+        - image: lkaetsu/prod-laravelapp:latest
+          name: laravel-app
+          envFrom:
+            - configMapRef:
+                name: env-cm0
+          workingDir: /var/www/html
+        - image: lkaetsu/prod-nginx:latest
+          name: nginx
+          ports:
+            - containerPort: 80
+      volumes:
+        - configMap:
+            name: env-cm0
+          name: env-cm0

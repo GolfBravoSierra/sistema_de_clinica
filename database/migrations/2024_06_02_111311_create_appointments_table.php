@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('paciente_name');
             $table->integer('psicologo_id')->unsigned();
             $table->string('psicologo_name');
+
         });
     }
 

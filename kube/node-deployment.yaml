@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node
+    namespace: sisclinica
+  name: node
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node
+  strategy:
+    type: rollingUpdates
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+        - image: lkaetsu/laravel-node:latest
+          name: node
+          ports:
+            - containerPort: 5173
+              hostPort: 5173
+              protocol: TCP
+          workingDir: /var/www/html
