@@ -45,7 +45,7 @@ class AppointmentTest extends TestCase
         ]);
 
 
-        $this->post('/'. $user->id. '/appointments/create', $appointment->toArray());
+        $this->post('/appointments/create', $appointment->toArray());
 
         $this->assertDatabaseHas('appointments', ['id' => $appointment->id]);
 
@@ -69,7 +69,7 @@ class AppointmentTest extends TestCase
 
         $response = $this->actingAs($user)
         ->withSession(['banned' => false])
-        ->post('/'. $user->id. '/appointments/update', $appointment->toArray(), $appointment->toArray());
+        ->post('/appointments/update', $appointment->toArray(), $appointment->toArray());
 
         $this->assertDatabaseHas('appointments',['id'=> $appointment->id, 'time' => "21:47"]);
     }

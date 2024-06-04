@@ -24,7 +24,7 @@
                 <NavLink href="/about" :active="$page.component === 'About'"  >Sobre nós</NavLink>
             </li>
             <li>
-                <NavLink v-if="$page.props.auth === null" href="/login" >Área logada</NavLink>
+                <NavLink v-if="$page.props.auth === null" href="/login" >Agendamentos</NavLink>
                 <NavLink v-else :href="'/'+$page.props.auth.user.id+'/arealogada'" :active="$page.component === 'Appointment/Index'"  >Agendamentos</NavLink>
             </li>
         </ul>

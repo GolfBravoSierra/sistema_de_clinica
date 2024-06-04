@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,6 @@ class AppointmentController extends Controller
 
     public function index()
     {
-        
         $user = Auth::user();
         $appointments = Appointment::where('paciente_id', $user->id)->get();
         return Inertia::render('Appointment/Index',
@@ -24,20 +24,26 @@ class AppointmentController extends Controller
 
     public function create(Request $request)
     {
-
+        $user = Auth::user();
+        return Inertia::render('Appointment/Create',
+            ['user'=> $user]);
     }
 
     public function store(Request $request)
     {
-        $attributes=$request->validate([
-            'date'=>'required',
-            'time'=>'required',
-            'paciente_name'=>'required',
-            'psicologo_name'=>'required',   
-        ]);
+        $user = Auth::user();
+        $psicologo = User::first()->where('permicao', 2);
+        $attributes=$request->all();
 
-        $attributes = Appointment::Create($appointment);
-        return Inertia::render('Appointments/Create');
+        Appointment::factory()->create([
+            'date' => $attributes->date,
+            'time' => $attributes->time,
+            'paciente_name' => $attributes->paciente_name,
+            'paciente_id' => $attributes->paciente_id,
+            'psicologo_name' => $psicologo->name,
+            'psicologo_id' => $psicologo->id,
+            'status'=> 0,
+        ]);
     }
 
     public function edit(Appointment $appointment)

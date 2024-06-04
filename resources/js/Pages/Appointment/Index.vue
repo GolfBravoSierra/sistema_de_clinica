@@ -1,6 +1,7 @@
 <template>
     <input type="hidden" ref="id" :value="$page.props.auth.user.id" />
   <div class="flex flex-row justify-around">
+    <Link href="/appointments/create">Agendar</Link>
         <div class="card bg-white shadow-md rounded px-4 py-4 mb-7 mx-4">
           <h2 class="text-xl font-bold mb-2">Consultas Futuras</h2>
             <div class="mb-4">
@@ -20,7 +21,7 @@
                             <td class="border px-4 py-2">{{ appointment.psicologo_name }}</td>
                             
                             <td class="border px-4 py-2">{{ appointment.time }}</td>
-                            <td class="border px-4 py-2"><Link :href="'/'+$page.props.auth.user.id+'/appointments/update'">Editar</Link></td>
+                            <td class="border px-4 py-2"><Link href="/appointments/update">Editar</Link></td>
                             <td class="border px-4 py-2">
                                 <input type="hidden":value="appointment.id">
                                 <button
