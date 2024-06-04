@@ -7,19 +7,17 @@
           <p>Bairro: {{ cepInfo.bairro }}</p>
           <p>Cidade: {{ cepInfo.localidade }}</p>
           <p>Estado: {{ cepInfo.uf }}</p>
-          <input v-model="cepInfo.logradouro" placeholder="Logradouro" readonly /><br />
-          <input v-model="cepInfo.bairro" placeholder="Bairro" readonly /><br />
-          <input v-model="cepInfo.localidade" placeholder="Localidade" readonly /><br />
-          <input v-model="cepInfo.uf" placeholder="UF" readonly /><br />
+          <input v-model="cepInfo.logradouro" readonly /><br />
+          <input v-model="cepInfo.bairro" readonly /><br />
+          <input v-model="cepInfo.localidade" readonly /><br />
+          <input v-model="cepInfo.uf" readonly /><br />
       </div>
   </div>
 </template>
 
 <script>
-import Layout from "../Shared/Layout.vue";
 
 export default {
-layout: Layout,
 data() {
   return {
     cep: '',
