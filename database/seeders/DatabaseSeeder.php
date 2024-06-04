@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Appointment;
+use App\Models\Post;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create(['permicao' => 1]);
+
+        $user = User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@gmail.com',
+            'password' => bcrypt("password"),
+            'permicao' => 1,
+        ]);
 
         $bubbles = User::factory()->create([
             'name' => 'Bubbles',
@@ -29,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt("password"),
             'permicao' => 2,
         ]);
-
+      
         User::factory()->create([
             'name' => 'Buttercup',
             'email' => 'buttercup@gmail.com',
@@ -50,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt("password"),
             'permicao' => 2,
         ]);
-
+      
         Appointment::factory(10)
             ->for($bubbles, 'paciente')
             ->for($blossom, 'psicologo')
@@ -62,5 +70,25 @@ class DatabaseSeeder extends Seeder
             ->for($userBol, 'psicologo')
             ->create(['paciente_nome' => $userP->name,
                       'psicologo_nome' => $userBol->name]);
+      
+        Post::factory()->for($user,'paciente')->create([
+            'user_name' => $user->name,
+            ]);
+
+        Post::factory()->for($bubbles,'paciente')->create([
+             'user_name' => $bubbles->name,
+            ]);
+        Post::factory()->for($userP,'paciente')->create([
+            'user_name' => $userP->name,
+            ]);
+        Post::factory()->for($user4,'paciente')->create([
+            'user_name' => $user4->name,
+            ]);
+        Post::factory()->for($user5,'paciente')->create([
+            'user_name' => $user5->name,
+            ]);
+        Post::factory()->for($user6,'paciente')->create([
+            'user_name' => $user6->name,
+            ]);
     }
 }
