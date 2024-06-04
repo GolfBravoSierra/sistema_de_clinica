@@ -21,6 +21,15 @@ Route::middleware('auth')->group(function (){
     Route::post('/{user}/patient',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
     Route::get('/home', function () {return Inertia::render('Home');}); // Tirar isso e deixar só o index de cima como a area logada?
 
+    // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());
+    // Route::post('/{user}/appointments/create',[AppointmentController::class, 'store'])->can('create', Auth::user());
+    // Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit'])->can('update', Auth::user());
+    // Route::post('/{user}/appointments/update',[AppointmentController::class, 'update'])->can('update', Auth::user());
+
+    Route::post('/patients/post',[PostController::class, 'store'])->can('create', Auth::user());
+    Route::post('/patients/post/update',[PostController::class, 'update'])->can('update', Auth::user());
+    Route::post('/patients/post/destroy',[PostController::class, 'destroy'])->can('destroy', Auth::user());
+
     // Secretária, que trabalha o dia inteiro comigo    //
     // Estou correndo um grande perigo                  //
     // De ir parar no tribunal                          //
@@ -30,16 +39,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/add-patients', [UserController::class, 'secretaria_addpatients']);
     Route::get('/manage-appointments', [UserController::class, 'secretaria_appointments']);
     Route::post('/onGoingAppointment', [UserController::class, 'secretaria_onGoingAppointment']);
+    Route::post('/newPatient', [UserController::class, 'secretaria_newPatient']);
 
-
-    // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());
-    // Route::post('/{user}/appointments/create',[AppointmentController::class, 'store'])->can('create', Auth::user());
-    // Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit'])->can('update', Auth::user());
-    // Route::post('/{user}/appointments/update',[AppointmentController::class, 'update'])->can('update', Auth::user());
-
-    Route::post('/patients/post',[PostController::class, 'store'])->can('create', Auth::user());
-    Route::post('/patients/post/update',[PostController::class, 'update'])->can('update', Auth::user());
-    Route::post('/patients/post/destroy',[PostController::class, 'destroy'])->can('destroy', Auth::user());
 });
 
 Route::get('/', function () {return Inertia::render('Index');});

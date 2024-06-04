@@ -7,10 +7,6 @@
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form @submit.prevent="sendEmail" class="space-y-6">
           <div>
-            <!-- <label for="to">Para:</label>
-            <input type="email" v-model="email.to" value="irineu0078@gmail.com" required> -->
-          </div>
-          <div>
             <label for="subject" class="block text-sm font-medium leading-6 text-gray-900">Assunto</label>
             <input type="text" v-model="email.subject" required class="border p-2 w-full rounded">
           </div>
