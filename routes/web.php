@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\User;
+use App\Models\Appointment;
 
 Route::post('/api/send-email', [EmailController::class, 'sendEmail']);
 
@@ -17,9 +18,14 @@ Route::post('/login',[LoginController::class, 'store']);
 Route::post('/logout',[LoginController::class, 'destroy'])->middleware('auth');
 
 Route::middleware('auth')->group(function (){
-    Route::get('/{user}/patient',[AppointmentController::class, 'index'])->can('view', Auth::user());
-    Route::post('/{user}/patient',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
-    Route::get('/home', function () {return Inertia::render('Home');}); // Tirar isso e deixar só o index de cima como a area logada?
+
+    Route::get('/{user}/arealogada',[AppointmentController::class, 'index']);
+
+    Route::get('/appointments/create',[AppointmentController::class, 'create']);
+    Route::post('/appointments/create',[AppointmentController::class, 'store']);
+    Route::get('/appointments/update',[AppointmentController::class, 'edit']);//->can('update', Auth::user());
+    Route::post('/appointments/update',[AppointmentController::class, 'update']);//->can('update', Auth::user());
+    Route::post('/appointments/destroy',[AppointmentController::class, 'destroy']);
 
     // Route::get('/{user}/appointments/create',[AppointmentController::class, 'create'])->can('create', Auth::user());
     // Route::post('/{user}/appointments/create',[AppointmentController::class, 'store'])->can('create', Auth::user());

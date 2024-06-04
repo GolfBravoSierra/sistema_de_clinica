@@ -26,10 +26,10 @@ class Appointment extends Model
 
     public function paciente(): BelongsTo
     {
-        return $this->belongsTo(User::class)->where('permicao', 1);
+        return $this->belongsTo(User::class, 'paciente_id')->where('permicao', 1);
     }
     public function psicologo(): BelongsTo
     {
-        return $this->belongsTo(User::class)->where('permicao', 2);
+        return $this->belongsTo(User::class, 'psicologo_id')->where('permicao', 2);
     }
 }

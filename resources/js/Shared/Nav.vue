@@ -8,7 +8,7 @@
         </p>
         <ul class="flex space-x-6">
             <li>
-                <NavLink href="/" :active="$page.component === 'Index'"  >Home</NavLink>
+                <NavLink href="/" :active="$page.component === 'Index'"  >Início</NavLink>
             </li>
             <li>
                 <NavLink v-if="$page.props.auth === null" href="/login" :active="$page.component === 'Login'"  >Login</NavLink>
@@ -23,6 +23,10 @@
             <li>
                 <NavLink href="/about" :active="$page.component === 'About'"  >Sobre nós</NavLink>
             </li>
+            <li>
+                <NavLink v-if="$page.props.auth === null" href="/login" >Agendamentos</NavLink>
+                <NavLink v-else :href="'/'+$page.props.auth.user.id+'/arealogada'" :active="$page.component === 'Appointment/Index'"  >Agendamentos</NavLink>
+            </li>
         </ul>
     </nav>
 </template>
@@ -33,5 +37,6 @@ import NavLink from "./NavLink.vue";
 export default {
     name: 'Nav',
     components: { NavLink },
+    
 }
 </script>

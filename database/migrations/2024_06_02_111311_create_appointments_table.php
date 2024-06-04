@@ -18,9 +18,10 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('status');
             $table->integer('paciente_id')->unsigned();
-            $table->string('paciente_nome');
+            $table->string('paciente_name');
             $table->integer('psicologo_id')->unsigned();
-            $table->string('psicologo_nome');
+            $table->string('psicologo_name');
+
         });
     }
 

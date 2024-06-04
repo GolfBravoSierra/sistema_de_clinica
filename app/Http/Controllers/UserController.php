@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
 use Illuminate\Support\Facades\Log;
 use App\Models\Appointment;
 use App\Models\User; 
+
 
 class UserController extends Controller
 {

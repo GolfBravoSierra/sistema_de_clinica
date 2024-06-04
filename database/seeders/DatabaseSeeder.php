@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'permicao' => 1,
         ]);
 
+
         $bubbles = User::factory()->create([
             'name' => 'Bubbles',
             'email' => 'bubbles@gmail.com',
@@ -58,6 +59,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt("password"),
             'permicao' => 2,
         ]);
+
       
         Appointment::factory(10)
             ->for($bubbles, 'paciente')
