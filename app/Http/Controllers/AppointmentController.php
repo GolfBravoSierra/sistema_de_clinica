@@ -6,7 +6,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\RedirectResponse;
 
 
 class AppointmentController extends Controller
@@ -24,31 +24,43 @@ class AppointmentController extends Controller
 
     public function create(Request $request)
     {
-        $attributes=$request->validate([
-            'data'=>'required',
-            
-        ])
-        return Inertia::render('Appointments/Create');
+
     }
 
     public function store(Request $request)
     {
-        //
+        $attributes=$request->validate([
+            'date'=>'required',
+            'time'=>'required',
+            'paciente_name'=>'required',
+            'psicologo_name'=>'required',   
+        ]);
+
+        $attributes = Appointment::Create($appointment);
+        return Inertia::render('Appointments/Create');
     }
 
-    public function edit(Appointments $appointments)
+    public function edit(Appointment $appointment)
     {
-        //
+        return Inertia::render('Appointment/Edit', ['appointment' => $appointment]);
     }
 
-    public function update(Request $request, Appointments $appointments)
+    public function update(Request $request, Appointment $appointment): RedirectResponse
     {
-        //
+        //dd($request->all());
+        $appointment = Appointment::findOrFail($request->id);
+        $appointment->update($request->all());
+        //dd($appointment);
+        $user = Auth::user();
+        return redirect('/'. $user->id. '/arealogada');
     }
 
-    public function destroy(Appointments $appointments)
+    public function destroy(Request $request): RedirectResponse
     {
-        //
+        $appointment = Appointment::findOrFail($request->id);
+        $appointment->delete();
+        $user = Auth::user();
+        return redirect('/'. $user->id. '/arealogada');
     }
 
     

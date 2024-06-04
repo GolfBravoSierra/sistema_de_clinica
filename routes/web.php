@@ -23,9 +23,10 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/{user}/appointments/create',[AppointmentController::class, 'create']);
     Route::post('/{user}/appointments/create',[AppointmentController::class, 'store']);
-    Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit'])->can('update', Auth::user());
-    Route::post('/{user}/appointments/update',[AppointmentController::class, 'update'])->can('update', Auth::user());
-    Route::post('/{user}/appointments/destroy',[AppointmentController::class, 'destroy'])->can('destroy', Auth::user());
+    Route::get('/{user}/appointments/update',[AppointmentController::class, 'edit']);//->can('update', Auth::user());
+    Route::post('/{user}/appointments/update',[AppointmentController::class, 'update']);//->can('update', Auth::user());
+    // Route::post('/{user}/appointments/destroy',[AppointmentController::class, 'destroy']);//->can('destroy', Auth::user());
+    Route::post('/appointments/destroy',[AppointmentController::class, 'destroy']);
 
     Route::post('/patients/post',[PostController::class, 'store'])->can('create', Auth::user());
     Route::post('/patients/post/update',[PostController::class, 'update'])->can('update', Auth::user());

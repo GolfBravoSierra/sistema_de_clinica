@@ -17,7 +17,7 @@ class AppointmentPolicy
         );
     }
 
-    public function destroy(User $user, User $professional): bool
+    public function destroy(User $user, Appointment $appointment): bool
     {
         return ($user->permicao === 3
         || $user->id === $appointment->psicologo->id
