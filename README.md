@@ -60,3 +60,8 @@ Acessar o app pelo electron
 ```sh
 npm start
 ```
+
+Acessar o Trello
+```sh
+https://trello.com/invite/b/zp0dtgVH/ATTIb8a103c455e60b7c94829a4531d9f92a5944D2A3/sistema-clinica-de-pscicologia
+```
