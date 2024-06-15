@@ -20,6 +20,7 @@ class AppointmentTest extends TestCase
         ]);
 
         $appointment = Appointment::factory()->for($user, 'paciente')->create([
+            'paciente_id' => $user->id,
             'paciente_name' => $user->name, 
             'psicologo_id' => 7,
             'psicologo_name' => 'Cabrau',
@@ -38,9 +39,11 @@ class AppointmentTest extends TestCase
         ]);
 
         $appointment = Appointment::factory()->for($user, 'paciente')->make([
+            'paciente_id' => $user->id,
             'paciente_name' => $user->name, 
             'psicologo_id' => 7,
             'psicologo_name' => 'Cabrau',
+            'status' => 0,
             'id' => 5,
         ]);
 
@@ -59,9 +62,12 @@ class AppointmentTest extends TestCase
         ]);
 
         $appointment = Appointment::factory()->for($user, 'paciente')->create([
+            'paciente_id' => $user->id,
             'paciente_name' => $user->name, 
             'psicologo_id' => 7,
             'psicologo_name' => 'Cabrau',
+            'status' => 0,
+            'id' => 5,
         ]);
 
         $appointment->time ="21:47";
@@ -80,9 +86,12 @@ class AppointmentTest extends TestCase
         ]);
 
         $appointment = Appointment::factory()->for($user, 'paciente')->create([
+            'paciente_id' => $user->id,
             'paciente_name' => $user->name, 
-            'psicologo_id' => 10,
+            'psicologo_id' => 7,
             'psicologo_name' => 'Cabrau',
+            'status' => 0,
+            'id' => 5,
         ]);
 
         $response = $this->actingAs($user)

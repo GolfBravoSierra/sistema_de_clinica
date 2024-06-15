@@ -1,17 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: C:\Program Files\Kubernetes\Kompose\kompose.exe convert
-    kompose.version: 1.33.0 (3ce457399)
   labels:
-    io.kompose.service: node
+    app: node
+  namespace: sisclinica
   name: node
 spec:
   type: NodePort
   ports:
-    - name: "5173"
+    - name: node
       port: 5173
-      targetPort: 5173
+      protocol: TCP
   selector:
-    io.kompose.service: node
+    app: node

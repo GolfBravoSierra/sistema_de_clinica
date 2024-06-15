@@ -36,6 +36,7 @@ class PostTest extends TestCase
 
         $post = Post::factory()->for($user,'paciente')->make([
             'user_name' => $user->name,
+            'paciente_id' => $user->name,
             'id' => 30,
         ]);
 

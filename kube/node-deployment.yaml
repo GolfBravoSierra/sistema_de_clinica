@@ -11,7 +11,8 @@ spec:
     matchLabels:
       app: node
   strategy:
-    type: rollingUpdates
+    type: RollingUpdate
+    rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
   template:

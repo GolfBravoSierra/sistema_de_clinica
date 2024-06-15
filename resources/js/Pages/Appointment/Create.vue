@@ -29,9 +29,6 @@ let form = useForm({
     date: "",
     time: "",
 });
-let submit = () => {
-    form.post("login");
-};
 </script>
 
 <script>

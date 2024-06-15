@@ -64,14 +64,14 @@ class DatabaseSeeder extends Seeder
         Appointment::factory(10)
             ->for($bubbles, 'paciente')
             ->for($blossom, 'psicologo')
-            ->create(['paciente_nome'=> $bubbles->name,
-                      'psicologo_nome' => $blossom->name]);
+            ->create(['paciente_name'=> $bubbles->name,
+                      'psicologo_name' => $blossom->name]);
 
         Appointment::factory(10)
             ->for($userP, 'paciente')
             ->for($userBol, 'psicologo')
-            ->create(['paciente_nome' => $userP->name,
-                      'psicologo_nome' => $userBol->name]);
+            ->create(['paciente_name' => $userP->name,
+                      'psicologo_name' => $userBol->name]);
       
         Post::factory()->for($user,'paciente')->create([
             'user_name' => $user->name,
